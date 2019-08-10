@@ -7,12 +7,14 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
 import {TodoListComponent} from './todo-list/todo-list.component';
+import {TodoFormComponent} from './todo-form/todo-form.component';
 import {todoReducer} from './core/redux/todos.reducer';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoFormComponent,
   ],
   imports: [
     BrowserModule,
