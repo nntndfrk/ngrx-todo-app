@@ -1,0 +1,16 @@
+<div class="container mt-4 mb-4">
+
+  <mat-form-field class="form-field">
+    <input matInput placeholder="Add TODO" [(ngModel)]="value" (keydown.enter)="onAddTodo()">
+    <button
+      mat-button mat-icon-button
+      *ngIf="value"
+      (click)="onAddTodo()"
+      class="inp-btn"
+      color="primary"
+    >
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
+  </mat-form-field>
+
+</div>

@@ -1,0 +1,10 @@
+.form-field {
+  width: 100%;
+  position: relative;
+}
+
+.inp-btn {
+  position: absolute;
+  top: -8px;
+  right: 0;
+}
