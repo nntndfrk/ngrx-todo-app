@@ -1,12 +1,10 @@
-<app-todo-form (addTodo)="addNewTodo($event)"></app-todo-form>
+<app-todo-form></app-todo-form>
 
 <div class="container mt-4">
 
   <app-todo-item
-    *ngFor="let todo of todoList"
+    *ngFor="let todo of todosState$ | async"
     [todo]="todo"
-    (todoMark)="markTodo($event)"
-    (todoDelete)="deleteTodo($event)"
   ></app-todo-item>
 
 </div>

@@ -1,4 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+import {pluck} from 'rxjs/operators';
+
+import {TodosState} from '../core/redux/todos.state';
 import {TodoModel} from '../core/models/todo.model';
 
 @Component({
@@ -7,38 +12,25 @@ import {TodoModel} from '../core/models/todo.model';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-  todoList: TodoModel[];
+  todosState$: Observable<TodoModel[]>;
 
-  constructor() {
+  // инжектируем стор как обычный angular-сервис
+  constructor(private store: Store<TodosState>) {
   }
 
   ngOnInit() {
-    this.todoList = TODO_MOCK;
+    // получаем состояние из экземпляра по соотвествующему ключу
+    this.todosState$ =
+      this.store.select('todosPage')
+        .pipe(pluck('todos'));
   }
 
   addNewTodo(text: string) {
-    const newTodo: TodoModel = {
-      text,
-      id: Date.now(),
-      status: false
-    };
-
-    this.todoList.push(newTodo);
   }
 
   markTodo(id: number) {
-    const idx = this.todoList.findIndex(t => t.id === id);
-
-    this.todoList[idx].status = !this.todoList[idx].status;
   }
 
   deleteTodo(id: number) {
-    this.todoList = this.todoList.filter(t => t.id !== id);
   }
 }
-
-const TODO_MOCK: TodoModel[] = [
-  {id: 1, text: 'qwe qwe', status: false},
-  {id: 2, text: 'asd asd asd', status: true},
-  {id: 3, text: 'zxczxc zx', status: false},
-];
