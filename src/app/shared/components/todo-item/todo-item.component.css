@@ -1,0 +1,27 @@
+.toolbar-row {
+  justify-content: space-between;
+}
+
+.toolbar-row__done {
+  background: #eaeaea;
+}
+
+.action-box {
+  padding: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.mat-divider {
+  border-top-color: rgb(123, 31, 162);
+}
+
+:host ::ng-deep  button:focus {
+  outline: none;
+}
+
+.done {
+  text-decoration: line-through;
+}

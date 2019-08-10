@@ -1,0 +1,25 @@
+
+<mat-toolbar-row
+  class="toolbar-row toolbar-row__done"
+  [ngClass]="{
+    'toolbar-row__done': todo.status
+  }"
+>
+  <span [ngClass]="{
+    'done': todo.status
+  }">{{todo.text}}</span>
+  <span class="example-spacer"></span>
+  <div class="action-box">
+    <button mat-icon-button color="primary" (click)="mark()">
+      <mat-icon class="a-icon">assignment_turned_in</mat-icon>
+    </button>
+    <button mat-icon-button color="primary" (click)="deleteTodo()">
+      <mat-icon class="a-icon">delete</mat-icon>
+    </button>
+
+
+
+  </div>
+
+</mat-toolbar-row>
+<mat-divider></mat-divider>
