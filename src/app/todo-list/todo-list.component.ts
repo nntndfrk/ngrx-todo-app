@@ -38,7 +38,7 @@ export class TodoListComponent implements OnInit {
 }
 
 const TODO_MOCK: TodoModel[] = [
-  {id: 1, text: 'qwe qwe', status: false},
-  {id: 2, text: 'asd asd asd', status: true},
-  {id: 3, text: 'zxczxc zx', status: false},
+  {id: 1, text: 'Купить продукты', status: false},
+  {id: 2, text: 'Изучить Angular', status: true},
+  {id: 3, text: 'Изучить NgRx', status: false},
 ];
