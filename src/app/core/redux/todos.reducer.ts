@@ -1,7 +1,5 @@
-import {Action} from '@ngrx/store';
-
 import {TodoModel} from '../models/todo.model';
-import {ADD_TODO, AddTodo} from './todos.action';
+import {ADD_TODO, DELETE_TODO, TodosActions, UPDATE_TODO} from './todos.action';
 
 
 /* Моковые данные приложения */
@@ -19,7 +17,7 @@ const initState = {
 /* Редьюсер представляет собой функцию, которая принимает в качестве параметров
 состояние (state) первым и специальный объект action, по типу Action
 из библиотеки @ngrx/store */
-export function todoReducer(state = initState, action: AddTodo) {
+export function todoReducer(state = initState, action: TodosActions) {
 
   switch (action.type) {
 
@@ -32,6 +30,22 @@ export function todoReducer(state = initState, action: AddTodo) {
       return {
         ...state,
         todos: [...state.todos, action.payload]
+      };
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: [
+          ...state.todos.filter(todo => todo.id !== action.payload.id)
+        ]
+      };
+
+    case UPDATE_TODO:
+      const idx = state.todos.findIndex(todo => {
+        return todo.id === action.payload.id;
+      });
+      state.todos[idx].status = !state.todos[idx].status;
+      return {
+        ...state
       };
 
     /* По умоляанию возвращаем неизмененное состояние */

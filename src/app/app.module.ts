@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
 import {TodoListComponent} from './todo-list/todo-list.component';
 import {TodoFormComponent} from './todo-form/todo-form.component';
+import {TodoItemComponent} from './todo-item/todo-item.component';
 import {todoReducer} from './core/redux/todos.reducer';
 
 @NgModule({
@@ -15,6 +16,7 @@ import {todoReducer} from './core/redux/todos.reducer';
     AppComponent,
     TodoListComponent,
     TodoFormComponent,
+    TodoItemComponent,
   ],
   imports: [
     BrowserModule,
